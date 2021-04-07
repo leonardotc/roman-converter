@@ -38,6 +38,15 @@ class RomanConverter {
     return arabic
   }
 
+  static isNumber(input) {
+    return _.isNumber(input)
+  }
+
+  static isRomanNumber(input) {
+    let validDigits = _.keys(singleDigit)
+    return _.filter(input, letter => _.includes(validDigits, letter))
+  }
+
   static toRoman (arabicStr) {
     let romanStr = ''
     let arabic = parseInt(arabicStr)

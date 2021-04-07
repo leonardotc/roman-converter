@@ -3,29 +3,31 @@ import RomanConverter from './RomanConverter'
 
 class ArabicToRoman extends React.Component {
   constructor(props) {
-      super(props);
-      this.state = {value: 0};
+    super(props);
+    this.state = {value: "nulla"};
 
-      this.handleChange = this.handleChange.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
   handleChange(event) {
-      this.setState({value: RomanConverter.toRoman(event.value)});
-  }
-
-  handleSubmit(event) {
-      alert('Your favorite flavor is: ' + this.state.value);
-      event.preventDefault();
+    if (RomanConverter.isNumber(event.target.value)) {
+      this.setState({value: RomanConverter.toRoman(event.target.value)});
+    } else {
+      this.setState({value: 0});
+    }
   }
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <label>
-          Input your roman number here:
-          <input onChange={this.handleChange} />
-        </label>
-      </form>
+      <div>
+        <div>
+          <label>
+            Input your arabic number here:
+            <input onChange={this.handleChange} />
+            <span> The roman correspondent is {this.state.value}</span>
+          </label>
+        </div>
+      </div>
     );
   }
 }
