@@ -26,7 +26,7 @@ const digits = {
   I: { value: 1, isSingleDigit: true }
 }
 
-class RomanConverter {
+class RomanNumerals {
   static fromRoman (romanStr) {
     let arabic = 0
     const roman = romanStr.split('')
@@ -66,4 +66,4 @@ class RomanConverter {
   }
 }
 
-export default RomanConverter
+export default RomanNumerals

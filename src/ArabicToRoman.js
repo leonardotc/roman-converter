@@ -1,5 +1,5 @@
 import React from 'react'
-import RomanConverter from './RomanConverter'
+import RomanNumerals from './RomanNumerals'
 
 class ArabicToRoman extends React.Component {
   constructor (props) {
@@ -10,8 +10,8 @@ class ArabicToRoman extends React.Component {
   }
 
   handleChange (event) {
-    if (RomanConverter.isNumber(event.target.value)) {
-      this.setState({ value: RomanConverter.toRoman(event.target.value) })
+    if (RomanNumerals.isNumber(event.target.value)) {
+      this.setState({ value: RomanNumerals.toRoman(event.target.value) })
     } else {
       this.setState({ value: 0 })
     }
