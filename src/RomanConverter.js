@@ -1,3 +1,5 @@
+import _ from 'lodash'
+
 const doubleDigit = {
     CM: 900,
     CD: 400,
@@ -29,8 +31,8 @@ const digits = {
     X: { value: 10, isSingleDigit: true },
     IX: { value: 9, isSingleDigit: false },
     V: { value: 5, isSingleDigit: true },
-    IV: { value: 4, isSingleDigit: true },
-    I: { value: 1, isSingleDigit: false }
+    IV: { value: 4, isSingleDigit: false },
+    I: { value: 1, isSingleDigit: true }
 }
 
 class RomanConverter {
@@ -39,14 +41,14 @@ class RomanConverter {
     }
     static toRoman(arabicStr) {
         let romanStr = ""
-        const arabic = parseInt(romanStr)
+        let arabic = parseInt(arabicStr)
 
-        _.each(digits, (romanLetters, algarism) => {
+        _.each(digits, (algarism, romanLetters) => {
             if (algarism.isSingleDigit) {
                 const digitCount = Math.floor(arabic / algarism.value)
                 arabic = arabic % algarism.value
-                romanStr += romanLetters * digitCount
-            } else {
+                romanStr += romanLetters.repeat(digitCount)
+            } else if (arabic >= algarism.value) {
                 arabic -= algarism.value
                 romanStr += romanLetters
             }
