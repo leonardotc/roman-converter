@@ -2,22 +2,22 @@ import React from 'react'
 import RomanConverter from './RomanConverter'
 
 class RomanToArabic extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {value: 0};
+  constructor (props) {
+    super(props)
+    this.state = { value: 0 }
 
-    this.handleChange = this.handleChange.bind(this);
+    this.handleChange = this.handleChange.bind(this)
   }
 
-  handleChange(event) {
+  handleChange (event) {
     if (RomanConverter.isRomanNumber(event.target.value)) {
-      this.setState({value: RomanConverter.fromRoman(event.target.value)})
+      this.setState({ value: RomanConverter.fromRoman(event.target.value) })
     } else {
-      this.setState({value: "nulla"})
+      this.setState({ value: 'nulla' })
     }
   }
 
-  render() {
+  render () {
     return (
       <div>
         <div>
@@ -28,7 +28,7 @@ class RomanToArabic extends React.Component {
           </label>
         </div>
       </div>
-    );
+    )
   }
 }
 

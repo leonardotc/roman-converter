@@ -38,12 +38,12 @@ class RomanConverter {
     return arabic
   }
 
-  static isNumber(input) {
+  static isNumber (input) {
     return _.isNumber(input)
   }
 
-  static isRomanNumber(input) {
-    let validDigits = _.keys(singleDigit)
+  static isRomanNumber (input) {
+    const validDigits = _.keys(singleDigit)
     return _.filter(input, letter => _.includes(validDigits, letter))
   }
 
